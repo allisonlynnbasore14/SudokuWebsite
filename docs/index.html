@@ -35,9 +35,28 @@
 
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-								 <form id = "questions" name = "Questions">
 
+
+
+						<div class="inner">
+
+							<script>
+							function sendAnswers(){
+								processAnswers(	document.Questions.Submission1.value)
+								//document.forms["StatusSubmit"].submit();
+							}
+
+							function puzzlePick(puzzNum){
+								processAnswers(puzzNum);
+							}
+							</script>
+
+								 <form method = 'post' id = "questions" name = "Questions">
+								 <input class= "btn" id = "SubmitForProcessing" type="button" value="Submit" onclick="sendAnswers()">
+
+								 	<ul class="actions">
+										<li><a href="#one" class="button scrolly"><a onclick="puzzlePick('The First Puzzle')" class="image"><img src="images/puzz1.gif" alt="" data-position="center center" /></a></a></li>
+									</ul>
 									 1) 20, 90, 70 (in degrees):
 									 	<select name="Submission1">
 								    		<option value="A"> Obtuse </option>
@@ -46,13 +65,18 @@
 								    		<option value="D"> Equilateral </option>
 								  		</select>
 								  	<br><br>
-								  </form>
+								 </form>
+
 							<h1>Hyperspace</h1>
+<!-- 							<div>
+							<form action = '/quiz/submit' name = "StatusSubmit" id = 'HiddenForm' method = 'post'>
+								<input class= "btn" id = "SubmitForProcessing" type="button" value="Submit" onClick="sendAnswers()">
+							</form>
+							</div> -->
+
+
 							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
 							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly"><a onclick="myFunction()" href="#one" class="image"><img src="images/puzz1.gif" alt="" data-position="center center" /></a></a></li>
-							</ul>
 						</div>
 					</section>
 
@@ -206,17 +230,11 @@
 					</ul>
 				</div>
 			</footer>
-
-		<div>
-			<form action = '/quiz/submit' name = "StatusSubmit" id = 'HiddenForm' method = 'post'>
-				<input class= "btn" id = "SubmitForProcessing" type="button" value="Submit" onClick="sendAnswers()">
-			</form>
-		</div>
 		
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
-			<script src= "assets/js/output.js" type="text/javascript">
+<!-- 			<script src= "assets/js/output.js" type="text/javascript">
 				function sendAnswers(){
 					processAnswers(	document.Questions.Submission1.value)
 					//document.forms["StatusSubmit"].submit();
@@ -225,9 +243,18 @@
 				// 	DisplaySubmissionDetails({{{numberC}}}, [{{{missedQ}}}], {{{status}}})
 				// }
 				document.forms["StatusSubmit"].submit();
+			</script> -->
+
+		  	<script src= "assets/js/output.js" type="text/javascript">
+				function sendAnswers(){
+					processAnswers(	document.Questions.Submission1.value)
+					//document.forms["StatusSubmit"].submit();
+				}
+				// if ({{{show}}}){
+				// 	DisplaySubmissionDetails({{{numberC}}}, [{{{missedQ}}}], {{{status}}})
+				// }
+				//document.forms["StatusSubmit"].submit();
 			</script>
-
-
 
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
